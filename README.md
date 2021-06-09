@@ -10,24 +10,72 @@ Yes !
 
    Creation of the multiple parts of the network (hosts, bridges,
 links, ...)
+
 ```
-$ yane [-v]
+$ yane [-s][-v]
 ```
-  `-v` to run yane in verbose mode.
+  `-v` to run yane in verbose mode. ( to display logs performed via yanes start  )
+
+  `-s <ID>` to give the session an ID. Must be unique.
+
+ 
+
+  But what if you want to load and boot yane with your own config file ? No problem ! You can do it with :
+```
+$ yane -f <FILE_NAME>
+```
 
 - Sessions
 
-   Multiple sessions can be run simultaneously. A list of active
-sessions can be seen with :
+   Multiple sessions can be run simultaneously. 
+   To facilitate their use, the `-s` option should be used with each session's creation.
+   A list of active sessions can be seen with :
+
 ```
 $ yane -l
 ```
    A specific session can be killed with :
 ```
-$ yane -s ID -k
+$ yane -s <SESSION_ID> -k
 ```
   The `-s` id option is not needed if a single session is running
 
+
+  You can see the logs when you kill a session :
+```
+$ yane -v -s <SESSION_ID> -k
+```
+  Same as above, the `-s` id option is not needed if a single session is running
+
+
+- Access 
+
+  To link a host to current terminal :
+
+```
+$ yane -c <HOST_NAME>
+```
+
+  `-s` to specify which session to target
+  `-c` to open a console on a specific host 
+
+ 
+  If there is more than one session, we can specify the session wanted :
+
+```
+$ yane -s <SESSION_ID> -c <HOST_NAME>
+```
+ 
+  Last option but not least, you can open a forked terminal in a window on host with :
+```
+$ yane -s <SESSION_ID> -w <HOST_NAME>
+```
+
+
+You can always find help with :
+```
+$ yane -h
+```
 
 ## Configuration and general structure
 
