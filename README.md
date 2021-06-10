@@ -81,7 +81,14 @@ $ yane -h
 
 ### Build your network :
 
-  The network is described in a `yane.yml` file. This need to build different variables :
+  The network is described in a `yane.yml` file. At first, we have to define the network by giving it a name and a version :
+  ```yaml
+  network:
+   name: docker
+   version: x
+  ```
+  
+  If we want the network to work, it needs some hosts (variables) :
 
 * host
 
@@ -92,6 +99,15 @@ $ yane -h
     name: NAME
     mode: docker | netns
   ```
+   We can give a network as many hosts as we desire. If the host's mode is defined as docker, we must add an image :
+   **Example**
+   ```yaml
+   hosts:
+      name: docker
+      mode: docker
+      image: quagga:latest
+    ```
+    Here , the docker image used when building the host will be quagga.
 
 * BridgeInterface :
 
@@ -140,3 +156,19 @@ $ yane -h
   ```
   host-a:v0:192.168.10.2/24
   ```
+* Vue
+
+   You can choose the view you want to use :
+   ```yaml
+   consoles: 
+      host: HOST_NAME
+      mode: all | xterm | tmux
+   ```
+   If you're using tmux mode, you have to specify terminals groups.
+   
+   **Example :**
+   ```yaml 
+   host: r1
+   mode: tmux
+   session: routers
+   ```
