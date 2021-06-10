@@ -14,7 +14,7 @@ links, ...)
 ```
 $ yane [-s][-v]
 ```
-  `-v` to run yane in verbose mode. ( to display logs performed via yanes start  )
+  `-v` to run yane in verbose mode. ( to display logs performed via yane starting or stopping  )
 
   `-s <ID>` to give the session an ID. Must be unique.
 
