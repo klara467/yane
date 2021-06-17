@@ -1,0 +1,24 @@
+network:
+ name: tp
+ version: 1.0
+ hosts:
+  - host-a:
+     name: host-a
+  - host-b:
+     name: host-b
+  - host-c:
+     name: host-c
+  - host-d:
+     name: host-d
+  - host-e:
+     name: host-e
+  - host-f:
+     name: host-f
+ 
+ bridges:
+  - first
+     interfaces: host-a:v0:192.168.1.1/24!host-b:v0:192.168.1.2/24
+  - second
+     interfaces: host-c:v0:192.168.2.1/24!host-d:v0:192.168.2.2/24
+  - third
+     interfaces: host-e:v0:192.168.3.1/24!host-f:v0:192.168.3.2/24
