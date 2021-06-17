@@ -27,4 +27,12 @@ network:
    - switch1:v0:192.168.1.0/24!switch2:v0:192.168.2.0/24!switch3:v0:192.168.3.0/24
    
    consoles:
-    - all
+    - 
+     host: host-a
+     mode: xterm
+    -
+     host: host-c
+     mode: xterm
+    - 
+     host: host-e
+     mode: xterm
