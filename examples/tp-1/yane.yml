@@ -16,9 +16,15 @@ network:
      name: host-f
  
  bridges:
-  - first
+  - switch1
      interfaces: host-a:v0:192.168.1.1/24!host-b:v0:192.168.1.2/24
-  - second
+  - switch2
      interfaces: host-c:v0:192.168.2.1/24!host-d:v0:192.168.2.2/24
-  - third
+  - switch3
      interfaces: host-e:v0:192.168.3.1/24!host-f:v0:192.168.3.2/24
+     
+  links:
+   - switch1:v0:192.168.1.0/24!switch2:v0:192.168.2.0/24!switch3:v0:192.168.3.0/24
+   
+   consoles:
+    - all
